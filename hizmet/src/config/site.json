@@ -3,5 +3,12 @@
   "description": "Güvenilir, hızlı ve profesyonel hizmet.",
   "phone": "+90 212 000 00 00",
   "email": "merhaba@hizmet.co",
-  "footer": "© 2026 Hizmet Co."
+  "footer": "© 2026 Hizmet Co.",
+  "i18n": {
+    "locales": [
+      "tr"
+    ],
+    "defaultLocale": "tr",
+    "prefixDefaultLocale": false
+  }
 }

@@ -1,6 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import site from '../config/site.json';
+import Contact from '../components/pages/Contact.astro';
+
+export const prerender = false;
 ---
-<Layout title={`İletişim — ${site.title}`} description="Hizmet Co. iletişim."><main class="page"><a class="back" href="/">← Ana sayfa</a><div class="eyebrow">İletişim</div><h1>İhtiyacınızı<br /><em>anlatın.</em></h1><p>Size en doğru çözümü sunabilmemiz için birkaç cümle yeterli.</p><div class="details"><a href={`tel:${site.phone}`}>{site.phone} ↗</a><a href={`mailto:${site.email}`}>{site.email} ↗</a></div></main></Layout>
-<style>:global(body){margin:0;background:#eef3f1;color:#112522;font-family:Arial,sans-serif}.page{width:min(56rem,calc(100% - 2.5rem));margin:0 auto;padding:5rem 0 8rem}.back{display:inline-block;margin-bottom:8rem;color:#64736e;font-size:.85rem}.eyebrow{color:#e16a3d;font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}h1{margin:1.5rem 0 2rem;font-size:clamp(3.7rem,8vw,7rem);line-height:.9;letter-spacing:-.08em}h1 em{font-family:Georgia,serif;font-weight:400}p{max-width:28rem;color:#64736e;font-size:1.1rem;line-height:1.7}.details{display:flex;flex-direction:column;align-items:start;gap:1.2rem;margin-top:3rem}.details a{border-bottom:2px solid #d5f563;padding-bottom:.4rem;font-size:1.1rem;font-weight:700}</style>
+
+<Contact />

@@ -1,0 +1,80 @@
+{
+	"nav": {
+		"about": "Hakkımızda",
+		"services": "Hizmetler",
+		"contact": "İletişim",
+		"cta": "Teklif al"
+	},
+	"common": {
+		"back": "← Ana sayfa",
+		"menu": "Ana menü"
+	},
+	"home": {
+		"heroEyebrow": "Güvenle büyüyen işler için",
+		"heroTitle": "İşinizi ileri taşıyan<br /><em>sağlam çözümler.</em>",
+		"heroCopy": "Strateji, tasarım ve teknoloji deneyimimizi bir araya getirerek markanız için ölçülebilir ve sürdürülebilir işler kuruyoruz.",
+		"heroPrimaryCta": "Projenizi konuşalım",
+		"heroSecondaryCta": "Neler yapıyoruz",
+		"heroNote": "Her projede açık iletişim, net sonuçlar.",
+		"statementEyebrow": "01 — Yaklaşımımız",
+		"statementTitle": "İyi fikirleri,<br /><em>iyi işlere</em> dönüştürüyoruz.",
+		"statementCopy": "İhtiyacı doğru anlayıp sade, işlevsel ve uzun ömürlü çözümler tasarlıyoruz. Her adımda hedeflerinizi ve müşterilerinizi merkeze alıyoruz.",
+		"servicesEyebrow": "02 — Hizmetler",
+		"servicesTitle": "Bugünün ihtiyacı,<br /><em>yarının altyapısı.</em>",
+		"serviceCards": [
+			{
+				"title": "Strateji ve danışmanlık",
+				"copy": "Doğru sorularla net bir yol haritası oluşturuyoruz.",
+				"href": "/hizmetler/#strateji"
+			},
+			{
+				"title": "Dijital deneyim",
+				"copy": "Markanızı etkili, hızlı ve anlaşılır dijital ürünlere taşıyoruz.",
+				"href": "/hizmetler/#dijital"
+			},
+			{
+				"title": "Sürekli gelişim",
+				"copy": "Yayın sonrası verilerle öğreniyor, birlikte büyüyoruz.",
+				"href": "/hizmetler/#gelisim"
+			}
+		],
+		"calloutEyebrow": "Birlikte başlayalım",
+		"calloutTitle": "İyi bir iş fikriniz<br /><em>var mı?</em>",
+		"calloutCta": "Bize ulaşın"
+	},
+	"about": {
+		"description": "Kuzey Studio hakkında.",
+		"eyebrow": "Hakkımızda",
+		"title": "Meraklı ekipler,<br /><em>kalıcı işler.</em>",
+		"copy": "Biz; karmaşık problemleri anlaşılır deneyimlere dönüştüren küçük ve odaklı bir stüdyoyuz. Tasarımın, teknolojiyle birleştiğinde işletmelere gerçek bir ivme kazandırdığına inanıyoruz.",
+		"cta": "Birlikte çalışalım"
+	},
+	"services": {
+		"description": "Kuzey Studio hizmetleri.",
+		"eyebrow": "Hizmetler",
+		"title": "İhtiyacınız olan<br /><em>netlik.</em>",
+		"items": [
+			{
+				"id": "strateji",
+				"title": "Strateji ve danışmanlık",
+				"copy": "Hedeflerinizi, kullanıcı ihtiyaçlarını ve pazar fırsatlarını bir araya getirip uygulanabilir bir yol haritası çıkarıyoruz."
+			},
+			{
+				"id": "dijital",
+				"title": "Dijital deneyim",
+				"copy": "Web siteleri ve dijital ürünleri hızlı, erişilebilir ve markanızla uyumlu şekilde tasarlayıp geliştiriyoruz."
+			},
+			{
+				"id": "gelisim",
+				"title": "Sürekli gelişim",
+				"copy": "Yayından sonra da yanınızdayız. Verileri takip ediyor, deneyimi düzenli olarak iyileştiriyoruz."
+			}
+		]
+	},
+	"contact": {
+		"description": "Projenizi konuşalım.",
+		"eyebrow": "İletişim",
+		"title": "Bir fikriniz varsa<br /><em>dinliyoruz.</em>",
+		"copy": "Projenizi, hedeflerinizi veya sadece aklınızdaki soruyu anlatın."
+	}
+}

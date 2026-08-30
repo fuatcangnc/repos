@@ -1,0 +1,62 @@
+{
+	"nav": {
+		"services": "Hizmetler",
+		"process": "Süreç",
+		"contact": "İletişim"
+	},
+	"common": {
+		"back": "← Ana sayfa"
+	},
+	"home": {
+		"servicesAnchor": "hizmetler",
+		"processAnchor": "surec",
+		"heroEyebrow": "Yerel uzmanlık · 7/24 destek",
+		"heroTitle": "İşiniz için<br /><em>işe yarayan</em> hizmet.",
+		"heroCopy": "Günlük hayatınızı kolaylaştıran, güvenilir ve zamanında hizmet sunuyoruz. İhtiyacınızı anlatın, çözümü birlikte planlayalım.",
+		"heroCta": "Ücretsiz keşif randevusu",
+		"panelLabel": "Bugün müsait",
+		"panelTitle": "Hızlı yanıt.<br />Temiz işçilik.",
+		"servicesEyebrow": "01 — Hizmetler",
+		"servicesTitle": "İhtiyacınız olduğunda<br /><em>yanınızdayız.</em>",
+		"servicesCopy": "Her işi özenle planlar, süreci baştan sona şeffaf şekilde yönetiriz.",
+		"serviceItems": [
+			{
+				"title": "Kurulum ve montaj",
+				"copy": "İlk keşiften son kontrole kadar güvenli ve düzenli kurulum."
+			},
+			{
+				"title": "Bakım ve onarım",
+				"copy": "Arızayı doğru tespit eder, kalıcı bir çözüm için çalışırız."
+			},
+			{
+				"title": "Periyodik servis",
+				"copy": "Sorun oluşmadan önce planlı bakım ile içiniz rahat olsun."
+			}
+		],
+		"processEyebrow": "02 — Süreç",
+		"processTitle": "Basit, açık,<br /><em>sonuç odaklı.</em>",
+		"processSteps": [
+			{
+				"title": "Anlatın",
+				"copy": "İhtiyacınızı dinliyor, doğru soruları soruyoruz."
+			},
+			{
+				"title": "Planlayalım",
+				"copy": "Net bir kapsam ve anlaşılır bir fiyat sunuyoruz."
+			},
+			{
+				"title": "Çözelim",
+				"copy": "İşi söz verdiğimiz zamanda tamamlıyoruz."
+			}
+		],
+		"ctaEyebrow": "Hazır mısınız?",
+		"ctaTitle": "İşinizi<br /><em>konuşalım.</em>",
+		"ctaButton": "Bize ulaşın"
+	},
+	"contact": {
+		"description": "Hizmet Co. iletişim.",
+		"eyebrow": "İletişim",
+		"title": "İhtiyacınızı<br /><em>anlatın.</em>",
+		"copy": "Size en doğru çözümü sunabilmemiz için birkaç cümle yeterli."
+	}
+}
