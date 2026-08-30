@@ -1,8 +1,21 @@
 // @ts-check
 import { readFileSync } from "node:fs";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 import cloudflare from "@astrojs/cloudflare";
+import tailwindcss from "@tailwindcss/vite";
+
+// bejamas:astro-fonts:start
+/** @type {NonNullable<import("astro/config").AstroUserConfig["fonts"]>} */
+const BEJAMAS_ASTRO_FONTS = [
+  {
+    provider: fontProviders.google(),
+    name: "Inter",
+    cssVariable: "--font-sans",
+    subsets: ["latin"],
+  },
+];
+// bejamas:astro-fonts:end
 
 // Internationalization is driven by src/config/site.json so TuranCMS (or any
 // editor) can add locales without touching this file:
@@ -28,7 +41,11 @@ const locales = Array.from(
 
 // https://astro.build/config
 export default defineConfig({
+  fonts: BEJAMAS_ASTRO_FONTS,
   adapter: cloudflare(),
+  vite: {
+    plugins: [tailwindcss()],
+  },
   ...(i18nEnabled
     ? {
         i18n: {

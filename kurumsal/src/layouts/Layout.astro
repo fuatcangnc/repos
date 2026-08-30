@@ -1,12 +1,17 @@
 ---
 import { defaultLocale } from '../lib/i18n';
+import '../styles/global.css';
 
 interface Props { title: string; description: string; }
 const { title, description } = Astro.props;
 const locale = Astro.currentLocale ?? defaultLocale;
+import { Font } from "astro:assets";
 ---
 <!doctype html>
-<html lang={locale}>
-	<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><meta name="description" content={description} /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><title>{title}</title></head>
+<html lang={locale} lang="en">
+	<head>
+    <!-- bejamas:astro-fonts:start -->
+<Font cssVariable="--font-sans" />
+<!-- bejamas:astro-fonts:end --><meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><meta name="description" content={description} /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><title>{title}</title></head>
 	<body><slot /></body>
 </html>
