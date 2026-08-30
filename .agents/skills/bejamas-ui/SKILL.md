@@ -33,6 +33,27 @@ is mandatory even when the requested change appears small. Existing project
 components may wrap Bejamas primitives; extend the wrapper when it already
 owns the product behavior instead of duplicating it.
 
+## Interaction mapping
+
+Treat product language as a component request. A “mega menu”, “megamenu”, site
+navigation, header navigation, or main menu must compose the local
+`navigation-menu` barrel and its `NavigationMenu`, `NavigationMenuList`,
+`NavigationMenuItem`, `NavigationMenuTrigger`, `NavigationMenuContent`,
+`NavigationMenuLink`, `NavigationMenuPositioner`, and `NavigationMenuViewport`
+components as appropriate. A wrapper may own the product-specific content and
+layout, but it must import and render the Bejamas primitives. Do not replace
+this with a custom `<nav>`, div-only dropdown, handwritten keyboard behavior,
+or custom CSS.
+
+Use the same rule for these mappings: modal/popup -> `dialog`,
+dropdown/context menu -> `dropdown-menu`, tabs -> `tabs`, accordion ->
+`accordion`, collapsible -> `collapsible`, select/search picker -> `select` or
+`combobox`, tooltip -> `tooltip`, alert/notification -> `alert`, card/tile ->
+`card`, form field -> `field`/`input`/`textarea`/`label`, toggle/switch ->
+`toggle`/`switch`, and carousel/slider -> `carousel`. Before considering a UI
+change complete, verify that the changed source visibly imports and renders the
+mapped component; mentioning the library in prose is not sufficient.
+
 ## Available component inventory
 
 These Bejamas UI components are installed or available in the TuranCMS Astro
