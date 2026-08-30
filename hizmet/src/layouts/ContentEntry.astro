@@ -1,0 +1,61 @@
+---
+import site from '../config/site.json';
+import Layout from './Layout.astro';
+import { defaultLocale, localePath } from '../lib/i18n';
+
+interface Props {
+	title?: string;
+	description?: string;
+	pubDate?: Date;
+	publishedAt?: Date;
+	updatedAt?: Date;
+	date?: Date;
+	author?: string;
+	collection: string;
+}
+
+const { title, description, pubDate, publishedAt, updatedAt, date, author, collection } = Astro.props;
+const locale = Astro.currentLocale ?? defaultLocale;
+const heading = title ?? 'İçerik';
+const publishedDate = updatedAt ?? publishedAt ?? pubDate ?? date;
+const dateLabel = publishedDate
+	? new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(new Date(publishedDate))
+	: undefined;
+---
+
+<Layout title={heading} description={description ?? site.description}>
+	<header class="content-header">
+		<a class="brand" href={localePath(locale, '/')}>{site.title}</a>
+		<a class="back" href={localePath(locale, '/')}>← Ana sayfa</a>
+	</header>
+	<main class="content-shell">
+		<div class="eyebrow">{collection}</div>
+		<h1>{heading}</h1>
+		{description && <p class="lead">{description}</p>}
+		<div class="meta">
+			{dateLabel && <time datetime={new Date(publishedDate).toISOString()}>{dateLabel}</time>}
+			{author && <span>{author}</span>}
+		</div>
+		<article class="content-body"><slot /></article>
+	</main>
+</Layout>
+
+<style>
+	:global(*) { box-sizing: border-box; }
+	:global(body) { margin: 0; background: #eef3f1; color: #112522; font-family: Arial, sans-serif; }
+	:global(a) { color: inherit; text-decoration: none; }
+	.content-header { display: flex; justify-content: space-between; align-items: center; width: min(72rem, calc(100% - 2.5rem)); min-height: 5rem; margin: auto; border-bottom: 1px solid #cad8d4; }
+	.brand { font-weight: 700; letter-spacing: -.04em; }
+	.back { color: #64736e; font-size: .85rem; }
+	.content-shell { width: min(48rem, calc(100% - 2.5rem)); margin: auto; padding: 7rem 0 8rem; }
+	.eyebrow { color: #e16a3d; font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+	h1 { margin: 1.25rem 0 0; font-size: clamp(2.75rem, 7vw, 5.5rem); line-height: .95; letter-spacing: -.07em; }
+	.lead { margin: 2rem 0 0; color: #64736e; font-size: 1.15rem; line-height: 1.7; }
+	.meta { display: flex; gap: 1rem; margin-top: 1.5rem; color: #64736e; font-size: .8rem; }
+	.content-body { margin-top: 4rem; border-top: 1px solid #cad8d4; padding-top: 2.5rem; font-size: 1.05rem; line-height: 1.8; }
+	.content-body :global(h2) { margin: 2.5rem 0 1rem; font-size: 2rem; line-height: 1; letter-spacing: -.05em; }
+	.content-body :global(h3) { margin: 2rem 0 .75rem; font-size: 1.35rem; }
+	.content-body :global(p), .content-body :global(ul), .content-body :global(ol) { margin: 1rem 0; }
+	.content-body :global(img) { max-width: 100%; height: auto; }
+	@media (max-width: 700px) { .content-header { min-height: 4rem; } .content-shell { padding: 5rem 0; } }
+</style>
