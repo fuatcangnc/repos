@@ -47,15 +47,38 @@ The starter uses [Astro i18n routing](https://docs.astro.build/en/guides/interna
 
 ```json
 "i18n": {
+  "enabled": true,
   "locales": ["tr", "en"],
   "defaultLocale": "tr",
   "prefixDefaultLocale": false
 }
 ```
 
-- `locales`: supported languages. Each non-default locale is served from `src/pages/<locale>/…`.
-- `defaultLocale`: with `prefixDefaultLocale: false` its pages stay at the root (`/hakkimizda/`); with `true` every URL is prefixed (`/tr/hakkimizda/`) and unprefixed URLs are redirected or 404ed by Astro's i18n middleware.
-- UI copy lives in `src/content/locales/<locale>.json`. Adding a new locale means adding it to `i18n.locales` and creating the matching JSON file (it falls back to the default locale until translated).
+- `enabled: false` disables locale routing and serves only the default site paths.
+- With `prefixDefaultLocale: false`, the default locale is unprefixed (`/hakkimizda/`) and other locales are prefixed (`/en/hakkimizda/`).
+- With `prefixDefaultLocale: true`, every locale is prefixed (`/tr/hakkimizda/`, `/en/hakkimizda/`).
+- UI copy lives in `src/content/locales/<locale>.json`. Adding a locale means adding it to `i18n.locales` and creating the matching JSON file.
+
+Collection folders can opt into path-based locale overrides without changing
+the public URL structure:
+
+```json
+"collections": {
+  "blog": {
+    "gitPath": "src/content/blog",
+    "i18n": {
+      "enabled": true,
+      "strategy": "path",
+      "localePaths": {
+        "fr": "src/content/fr/blog"
+      }
+    }
+  }
+}
+```
+
+The same collection metadata is mirrored in `.sitepins/config.json` so
+TuranCMS can preserve it while creating and editing a repository.
 
 TuranCMS writes this configuration automatically when you pick locales while starting from this template.
 

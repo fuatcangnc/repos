@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "cta": "Start a project"
+  },
+  "common": {
+    "back": "← Home",
+    "menu": "Main navigation"
+  },
+  "home": {
+    "heroEyebrow": "Building better businesses",
+    "heroTitle": "Solid solutions<br /><em>for lasting growth.</em>",
+    "heroCopy": "We bring strategy, design, and technology together to build measurable, sustainable work for your brand.",
+    "heroPrimaryCta": "Let’s talk about your project",
+    "heroSecondaryCta": "What we do",
+    "heroNote": "Clear communication, tangible results.",
+    "statementEyebrow": "01 — Our approach",
+    "statementTitle": "Turning good ideas<br />into <em>great work.</em>",
+    "statementCopy": "We understand the need first, then design clear, useful, and durable solutions. Your goals and your customers stay at the centre of every step.",
+    "servicesEyebrow": "02 — Services",
+    "servicesTitle": "Today’s needs,<br /><em>tomorrow’s foundation.</em>",
+    "serviceCards": [
+      {
+        "title": "Strategy and consulting",
+        "copy": "We create a clear roadmap by asking the right questions.",
+        "href": "/hizmetler/#strateji"
+      },
+      {
+        "title": "Digital experience",
+        "copy": "We turn your brand into effective, fast, and understandable digital products.",
+        "href": "/hizmetler/#dijital"
+      },
+      {
+        "title": "Continuous improvement",
+        "copy": "We learn from the data after launch and grow together.",
+        "href": "/hizmetler/#gelisim"
+      }
+    ],
+    "calloutEyebrow": "Let’s get started",
+    "calloutTitle": "Have a good idea<br /><em>in mind?</em>",
+    "calloutCta": "Get in touch"
+  },
+  "about": {
+    "description": "About Kuzey Studio.",
+    "eyebrow": "About us",
+    "title": "Curious teams,<br /><em>lasting work.</em>",
+    "copy": "We are a small, focused studio that turns complex problems into understandable experiences. We believe design, when combined with technology, gives businesses real momentum.",
+    "cta": "Work with us"
+  },
+  "services": {
+    "description": "Kuzey Studio services.",
+    "eyebrow": "Services",
+    "title": "The clarity<br /><em>you need.</em>",
+    "items": [
+      {
+        "id": "strateji",
+        "title": "Strategy and consulting",
+        "copy": "We bring your goals, user needs, and market opportunities together into an actionable roadmap."
+      },
+      {
+        "id": "dijital",
+        "title": "Digital experience",
+        "copy": "We design and build websites and digital products that are fast, accessible, and true to your brand."
+      },
+      {
+        "id": "gelisim",
+        "title": "Continuous improvement",
+        "copy": "We stay with you after launch, tracking data and improving the experience over time."
+      }
+    ]
+  },
+  "contact": {
+    "description": "Let’s talk about your project.",
+    "eyebrow": "Contact",
+    "title": "Have an idea?<br /><em>We’re listening.</em>",
+    "copy": "Tell us about your project, your goals, or simply the question on your mind."
+  }
+}

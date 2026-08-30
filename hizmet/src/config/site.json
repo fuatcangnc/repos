@@ -5,10 +5,19 @@
   "email": "merhaba@hizmet.co",
   "footer": "© 2026 Hizmet Co.",
   "i18n": {
-    "locales": [
-      "tr"
-    ],
+    "enabled": true,
+    "locales": ["tr", "en"],
     "defaultLocale": "tr",
     "prefixDefaultLocale": false
+  },
+  "collections": {
+    "blog": {
+      "gitPath": "src/content/blog",
+      "i18n": {
+        "enabled": true,
+        "strategy": "path",
+        "localePaths": {}
+      }
+    }
   }
 }

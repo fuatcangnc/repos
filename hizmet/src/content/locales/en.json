@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "services": "Services",
+    "process": "Process",
+    "contact": "Contact"
+  },
+  "common": {
+    "back": "← Home"
+  },
+  "home": {
+    "servicesAnchor": "services",
+    "processAnchor": "process",
+    "heroEyebrow": "Local expertise · 24/7 support",
+    "heroTitle": "A service that<br /><em>works</em> for your business.",
+    "heroCopy": "Reliable, timely service that makes everyday life easier. Tell us what you need and we’ll plan the solution together.",
+    "heroCta": "Book a free consultation",
+    "panelLabel": "Available today",
+    "panelTitle": "Fast response.<br />Clean workmanship.",
+    "servicesEyebrow": "01 — Services",
+    "servicesTitle": "We’re here<br /><em>when you need us.</em>",
+    "servicesCopy": "We plan every job carefully and manage the process transparently from start to finish.",
+    "serviceItems": [
+      {
+        "title": "Installation and assembly",
+        "copy": "Safe, organised installation from the first inspection to the final check."
+      },
+      {
+        "title": "Maintenance and repair",
+        "copy": "We identify the issue correctly and work towards a lasting solution."
+      },
+      {
+        "title": "Scheduled service",
+        "copy": "Planned maintenance gives you peace of mind before problems appear."
+      }
+    ],
+    "processEyebrow": "02 — Process",
+    "processTitle": "Simple, clear,<br /><em>focused on results.</em>",
+    "processSteps": [
+      {
+        "title": "Tell us",
+        "copy": "We listen to your needs and ask the right questions."
+      },
+      {
+        "title": "Let’s plan",
+        "copy": "We provide a clear scope and an easy-to-understand price."
+      },
+      {
+        "title": "Let’s solve it",
+        "copy": "We complete the work when we said we would."
+      }
+    ],
+    "ctaEyebrow": "Ready when you are",
+    "ctaTitle": "Let’s talk<br /><em>about your work.</em>",
+    "ctaButton": "Get in touch"
+  },
+  "contact": {
+    "description": "Contact Hizmet Co.",
+    "eyebrow": "Contact",
+    "title": "Tell us<br /><em>what you need.</em>",
+    "copy": "A few sentences are enough for us to find the right solution for you."
+  }
+}
