@@ -35,24 +35,45 @@ owns the product behavior instead of duplicating it.
 
 ## Interaction mapping
 
-Treat product language as a component request. A “mega menu”, “megamenu”, site
-navigation, header navigation, or main menu must compose the local
-`navigation-menu` barrel and its `NavigationMenu`, `NavigationMenuList`,
-`NavigationMenuItem`, `NavigationMenuTrigger`, `NavigationMenuContent`,
-`NavigationMenuLink`, `NavigationMenuPositioner`, and `NavigationMenuViewport`
-components as appropriate. A wrapper may own the product-specific content and
-layout, but it must import and render the Bejamas primitives. Do not replace
-this with a custom `<nav>`, div-only dropdown, handwritten keyboard behavior,
-or custom CSS.
+Infer the component from the requested behavior, not only from a literal
+component name. Inspect the target layout and determine:
 
-Use the same rule for these mappings: modal/popup -> `dialog`,
-dropdown/context menu -> `dropdown-menu`, tabs -> `tabs`, accordion ->
-`accordion`, collapsible -> `collapsible`, select/search picker -> `select` or
-`combobox`, tooltip -> `tooltip`, alert/notification -> `alert`, card/tile ->
-`card`, form field -> `field`/`input`/`textarea`/`label`, toggle/switch ->
-`toggle`/`switch`, and carousel/slider -> `carousel`. Before considering a UI
-change complete, verify that the changed source visibly imports and renders the
-mapped component; mentioning the library in prose is not sufficient.
+- what triggers the interaction;
+- whether the surface is modal, anchored, inline, or persistent;
+- whether it contains actions, arbitrary content, navigation links, or a form
+  value;
+- whether one region or a repeated group opens;
+- whether the interaction selects a value, switches a view, reveals content,
+  or only provides a hint.
+
+Use those semantics to choose the primitive:
+
+- Repeated disclosure sections, FAQs, or independently expanding rows use
+  `accordion`. One expandable region uses `collapsible`.
+- A non-modal floating panel anchored to a trigger and containing arbitrary
+  content uses `popover`. A temporary list of actions uses `dropdown-menu`.
+- A predefined form value picker uses `select`; use `combobox` when the user
+  must search or filter options. Do not use either for action menus.
+- Site or section navigation, including multi-column link panels, uses
+  `navigation-menu`. Compose its trigger, content, positioner, viewport, and
+  link primitives as needed.
+- A blocking focused task uses `dialog`. A short non-interactive hover hint
+  uses `tooltip`; a rich hover or focus preview uses `hover-card`.
+- Peer views use `tabs`; an immediate setting uses `switch`; a retained
+  pressed state uses `toggle`; sequential panels use `carousel`.
+
+Product wording can be vague. Phrases such as “make something that opens”,
+“show this when clicked”, or “put choices here” are not component names. Use
+the existing source and the criteria above instead of defaulting to accordion,
+popover, or select. If two primitives remain genuinely plausible after reading
+the target, ask one focused behavior question before editing.
+
+A wrapper may own product-specific content and layout, but it must import and
+render the selected Bejamas primitives. Do not replace them with a custom
+`<nav>`, div-only disclosure, handwritten keyboard behavior, or custom CSS.
+Before considering a UI change complete, verify that the changed source visibly
+imports and renders every selected component; mentioning the library in prose
+is not sufficient.
 
 ## Available component inventory
 
