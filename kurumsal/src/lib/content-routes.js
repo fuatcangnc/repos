@@ -33,3 +33,29 @@ export async function getLocalizedContentPaths() {
 		props: { ...path.props, locale },
 	})));
 }
+
+export async function getContentCollectionPaths() {
+	const entries = await getCollection('siteContent', ({ data }) => data.draft !== true);
+	const collections = new Map();
+
+	for (const entry of entries) {
+		const { collection, slug } = splitContentId(entry.id);
+		if (!collection || !slug || collection === 'blog') continue;
+		const current = collections.get(collection) ?? [];
+		current.push(entry);
+		collections.set(collection, current);
+	}
+
+	return [...collections.entries()].map(([collection, entries]) => ({
+		params: { collection },
+		props: { collection, entries },
+	}));
+}
+
+export async function getLocalizedContentCollectionPaths() {
+	const paths = await getContentCollectionPaths();
+	return prefixedLocales().flatMap((locale) => paths.map((path) => ({
+		params: { locale, ...path.params },
+		props: { ...path.props, locale },
+	})));
+}
