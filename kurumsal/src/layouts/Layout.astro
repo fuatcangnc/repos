@@ -1,17 +1,74 @@
 ---
-import { defaultLocale } from '../lib/i18n';
-import '../styles/global.css';
+import { Font } from "astro:assets";
+import site from "../config/site.json";
+import { defaultLocale } from "../lib/i18n";
+import "../styles/global.css";
 
-interface Props { title: string; description: string; }
+interface Props {
+  title: string;
+  description: string;
+}
+
+type UIConfig = {
+  container?: unknown;
+  primary?: unknown;
+  foreground?: unknown;
+  mutedForeground?: unknown;
+  radius?: unknown;
+};
+
 const { title, description } = Astro.props;
 const locale = Astro.currentLocale ?? defaultLocale;
-import { Font } from "astro:assets";
+const ui = ((site as typeof site & { ui?: UIConfig }).ui ?? {}) as UIConfig;
+
+const hexColor = (value: unknown, fallback: string) =>
+  typeof value === "string" && /^#[0-9a-f]{6}$/i.test(value)
+    ? value.toUpperCase()
+    : fallback;
+const selectValue = <T extends Record<string, string>>(
+  value: unknown,
+  values: T,
+  fallback: T[keyof T],
+) =>
+  typeof value === "string" && value in values
+    ? values[value as keyof T]
+    : fallback;
+const primary = hexColor(ui.primary, "#2563EB");
+const red = Number.parseInt(primary.slice(1, 3), 16);
+const green = Number.parseInt(primary.slice(3, 5), 16);
+const blue = Number.parseInt(primary.slice(5, 7), 16);
+const luminance = (red * 299 + green * 587 + blue * 114) / 1000;
+const primaryForeground = luminance > 158 ? "#171717" : "#F8FAFC";
+const containerWidth = selectValue(
+  ui.container,
+  { "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" },
+  "80rem",
+);
+const radius = selectValue(
+  ui.radius,
+  { sm: "0.375rem", md: "0.625rem", lg: "0.875rem" },
+  "0.875rem",
+);
+const uiStyle = [
+  `--site-container-width: ${containerWidth}`,
+  `--primary: ${primary}`,
+  `--primary-foreground: ${primaryForeground}`,
+  `--foreground: ${hexColor(ui.foreground, "#171717")}`,
+  `--muted-foreground: ${hexColor(ui.mutedForeground, "#71717A")}`,
+  `--radius: ${radius}`,
+].join(";");
 ---
 <!doctype html>
-<html lang={locale} lang="en">
+<html lang={locale} style={uiStyle}>
 	<head>
-    <!-- bejamas:astro-fonts:start -->
-<Font cssVariable="--font-sans" />
-<!-- bejamas:astro-fonts:end --><meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><meta name="description" content={description} /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><title>{title}</title></head>
+		<!-- bejamas:astro-fonts:start -->
+		<Font cssVariable="--font-sans" />
+		<!-- bejamas:astro-fonts:end -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
 	<body><slot /></body>
 </html>

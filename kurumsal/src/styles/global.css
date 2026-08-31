@@ -131,3 +131,9 @@
     @apply font-sans;
   }
 }
+
+@layer utilities {
+  .container {
+    width: min(100% - 2rem, var(--site-container-width, 80rem));
+  }
+}
