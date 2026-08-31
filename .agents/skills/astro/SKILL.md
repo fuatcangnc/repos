@@ -23,6 +23,12 @@ Create a repository that:
 Do not create a mock folder tree that only looks like Astro. The template must
 install, build, and render its routes from the committed files.
 
+When a site needs the TuranCMS house style, apply the companion
+`.agents/skills/astro-site-design/SKILL.md` as well. It defines the visual,
+information-architecture, motion, and reusable-component rules for the
+reference-inspired Astro starters without replacing the structural contract
+in this skill.
+
 ## Starter creation
 
 For a new Astro starter, begin from the official Cloudflare Astro scaffold when
