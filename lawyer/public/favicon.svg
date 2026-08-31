@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aster and Vale">
+  <rect width="64" height="64" rx="14" fill="#1E211F"/>
+  <path d="M16 48 31.5 14h3L50 48h-7.2l-3.1-7.6H25.8L22.6 48H16Zm12.1-13.8h9.2L32.7 22l-4.6 12.2Z" fill="#F4F1EB"/>
+  <path d="M34 14h4l10 34h-5.2L34 14Z" fill="#A6532D"/>
+</svg>

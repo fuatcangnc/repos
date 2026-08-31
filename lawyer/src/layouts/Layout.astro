@@ -1,0 +1,80 @@
+---
+import site from '../config/site.json';
+import seo from '../config/seo.json';
+import { defaultLocale } from '../lib/i18n';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+type UIConfig = Record<string, unknown>;
+const { title, description = site.description, image = seo.defaultSocialImage } = Astro.props;
+const locale = Astro.currentLocale ?? defaultLocale;
+const ui = (site.ui ?? {}) as UIConfig;
+
+const hex = (value: unknown, fallback: string) =>
+  typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value) ? value : fallback;
+const pick = (value: unknown, values: Record<string, string>, fallback: string) =>
+  typeof value === 'string' && values[value] ? values[value] : fallback;
+const primary = hex(ui.primary, '#A6532D');
+const rgb = primary.slice(1).match(/.{2}/g)?.map((part) => Number.parseInt(part, 16)) ?? [166, 83, 45];
+const primaryForeground = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000 > 158 ? '#1E211F' : '#FFFFFF';
+const container = pick(ui.container, { '5xl': '64rem', '6xl': '72rem', '7xl': '80rem' }, '80rem');
+const gutter = pick(ui.gutter, { compact: '1rem', standard: '1.5rem', spacious: '2rem' }, '1.5rem');
+const baseSize = pick(ui.baseSize, { '14': '14px', '16': '16px', '18': '18px' }, '16px');
+const lineHeight = pick(ui.lineHeight, { compact: '1.45', standard: '1.6', relaxed: '1.75' }, '1.6');
+const radius = pick(ui.radius, { sm: '0.375rem', md: '0.625rem', lg: '0.875rem' }, '0.625rem');
+const controlRadius = pick(ui.controlRadius, { sm: '0.375rem', md: '0.625rem', lg: '0.875rem' }, radius);
+const spacing = pick(ui.cardSpacing, { compact: '1rem', standard: '1.5rem', generous: '2rem' }, '1.5rem');
+const buttonPadding = pick(ui.buttonPadding, { compact: '0.375rem 0.75rem', standard: '0.625rem 1rem', generous: '0.75rem 1.25rem' }, '0.625rem 1rem');
+const buttonHeight = pick(ui.buttonHeight, { compact: '2rem', standard: '2.5rem', generous: '3rem' }, '2.5rem');
+const buttonWeight = pick(ui.buttonWeight, { '500': '500', '600': '600', '700': '700' }, '600');
+const css = [
+  `--site-container-width:${container}`,
+  `--site-container-gutter:${gutter}`,
+  `--site-base-size:${baseSize}`,
+  `--site-line-height:${lineHeight}`,
+  `--site-card-radius:${radius}`,
+  `--site-card-spacing:${spacing}`,
+  `--site-control-radius:${controlRadius}`,
+  `--site-button-padding:${buttonPadding}`,
+  `--site-button-height:${buttonHeight}`,
+  `--site-button-font-weight:${buttonWeight}`,
+  `--background:${hex(ui.background, '#F4F1EB')}`,
+  `--card:${hex(ui.surface, '#FBF9F5')}`,
+  `--primary:${primary}`,
+  `--primary-foreground:${primaryForeground}`,
+  `--foreground:${hex(ui.foreground, '#1E211F')}`,
+  `--muted-foreground:${hex(ui.mutedForeground, '#6E716C')}`,
+  `--border:${hex(ui.border, '#D8D2C8')}`,
+  `--input:${hex(ui.border, '#D8D2C8')}`,
+  `--ring:${primary}`,
+  `--radius:${radius}`,
+].join(';');
+const canonical = site.url ? new URL(Astro.url.pathname, site.url).toString() : undefined;
+const absoluteImage = site.url && image ? new URL(image, site.url).toString() : image;
+---
+
+<!doctype html>
+<html lang={locale} style={css}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    {seo.googleVerification && <meta name="google-site-verification" content={seo.googleVerification} />}
+    {seo.bingVerification && <meta name="msvalidate.01" content={seo.bingVerification} />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {absoluteImage && <meta property="og:image" content={absoluteImage} />}
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href={site.favicon ?? '/favicon.svg'} />
+    <title>{title}</title>
+  </head>
+  <body><slot /></body>
+</html>

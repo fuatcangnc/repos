@@ -1,0 +1,9 @@
+---
+import Practice from '../../../components/pages/Practice.astro';
+import { prefixedLocales } from '../../../lib/i18n';
+
+export function getStaticPaths() {
+  return prefixedLocales().map((locale) => ({ params: { locale } }));
+}
+---
+<Practice />

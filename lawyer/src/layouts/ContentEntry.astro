@@ -1,0 +1,42 @@
+---
+import site from '../config/site.json';
+import Layout from './Layout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { defaultLocale, getMessages, localePath } from '../lib/i18n';
+
+interface Props {
+  title?: string;
+  description?: string;
+  pubDate?: Date;
+  publishedAt?: Date;
+  updatedAt?: Date;
+  date?: Date;
+  author?: string;
+  collection: string;
+}
+
+const { title, description, pubDate, publishedAt, updatedAt, date, author, collection } = Astro.props;
+const locale = Astro.currentLocale ?? defaultLocale;
+const t = getMessages(locale);
+const publishedDate = updatedAt ?? publishedAt ?? pubDate ?? date;
+const dateLabel = publishedDate ? new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(new Date(publishedDate)) : undefined;
+---
+
+<Layout title={`${title ?? 'Content'}${(t.blog?.titleSeparator ?? '')}`} description={description ?? site.description}>
+  <SiteHeader />
+  <main class="mx-auto w-[min(52rem,calc(100%-2*var(--site-container-gutter)))] py-20 sm:py-28">
+    <a class="text-sm text-muted underline decoration-line underline-offset-4 hover:text-ink" href={localePath(locale, '/')}>{t.common.backHome}</a>
+    <p class="mt-12 text-xs font-semibold uppercase tracking-[0.2em] text-primary">{collection}</p>
+    <h1 class="mt-5 font-serif text-5xl leading-[0.95] tracking-[-0.055em] sm:text-7xl">{title ?? 'Content'}</h1>
+    {description && <p class="mt-7 text-lg leading-8 text-muted">{description}</p>}
+    <div class="mt-6 flex flex-wrap gap-4 text-sm text-muted">
+      {dateLabel && <time datetime={new Date(publishedDate).toISOString()}>{dateLabel}</time>}
+      {author && <span>{author}</span>}
+    </div>
+    <article class="prose prose-stone mt-14 max-w-none border-line border-t pt-10 text-lg leading-8 text-ink prose-headings:font-serif prose-headings:tracking-[-0.04em] prose-a:text-primary prose-img:rounded-[var(--site-card-radius)]">
+      <slot />
+    </article>
+  </main>
+  <SiteFooter />
+</Layout>

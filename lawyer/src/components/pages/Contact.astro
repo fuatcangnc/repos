@@ -1,0 +1,21 @@
+---
+import site from '../../config/site.json';
+import Layout from '../../layouts/Layout.astro';
+import SiteFooter from '../SiteFooter.astro';
+import SiteHeader from '../SiteHeader.astro';
+import { defaultLocale, getMessages } from '../../lib/i18n';
+
+const locale = Astro.currentLocale ?? defaultLocale;
+const t = getMessages(locale);
+---
+
+<Layout title={`${t.nav.contact} — ${site.title}`} description={t.contact.copy}>
+  <SiteHeader />
+  <main>
+    <section class="mx-auto grid w-[min(var(--site-container-width),calc(100%-2*var(--site-container-gutter)))] gap-14 py-20 sm:py-28 lg:grid-cols-[0.8fr_1.2fr]"><div><p class="text-xs font-semibold uppercase tracking-[0.22em] text-primary">{t.contact.eyebrow}</p><h1 class="mt-7 font-serif text-6xl leading-[0.88] tracking-[-0.065em] sm:text-8xl">{t.contact.title.split('\n').map((line) => <span class="block">{line}</span>)}</h1><p class="mt-9 max-w-lg text-lg leading-8 text-muted">{t.contact.copy}</p><div class="mt-12 grid gap-7 text-sm"><div><p class="text-xs uppercase tracking-[0.16em] text-muted">{t.contact.emailLabel}</p><a class="mt-2 inline-block font-semibold underline decoration-primary underline-offset-4" href={`mailto:${site.email}`}>{site.email}</a></div><div><p class="text-xs uppercase tracking-[0.16em] text-muted">{t.contact.phoneLabel}</p><a class="mt-2 inline-block font-semibold" href={`tel:${site.phone}`}>{site.phone}</a></div><div><p class="text-xs uppercase tracking-[0.16em] text-muted">{t.contact.officeLabel}</p><p class="mt-2 font-semibold">{site.address}</p><p class="mt-1 text-muted">{t.contact.officeHours}</p></div></div></div>
+      <form class="border-line grid gap-5 rounded-[calc(var(--site-card-radius)*2)] border bg-surface p-6 sm:p-9" method="post" action={`mailto:${site.email}`}><label class="grid gap-2 text-sm"><span>{t.contact.formName}</span><input class="border-line rounded-[var(--site-control-radius)] border bg-background px-4 py-3 outline-none focus:border-primary" name="name" autocomplete="name" required /></label><label class="grid gap-2 text-sm"><span>{t.contact.formEmail}</span><input class="border-line rounded-[var(--site-control-radius)] border bg-background px-4 py-3 outline-none focus:border-primary" name="email" type="email" autocomplete="email" required /></label><label class="grid gap-2 text-sm"><span>{t.contact.formMessage}</span><textarea class="border-line min-h-40 resize-y rounded-[var(--site-control-radius)] border bg-background px-4 py-3 outline-none focus:border-primary" name="message" required></textarea></label><button class="mt-2 inline-flex h-[var(--site-button-height)] items-center justify-center rounded-[var(--site-control-radius)] bg-primary px-5 font-semibold text-primary-foreground" type="submit">{t.contact.formSubmit}<span class="ms-6">↗</span></button><p class="text-xs leading-5 text-muted">{t.contact.formNote}</p></form>
+    </section>
+    <section class="border-line border-t"><div class="mx-auto grid w-[min(var(--site-container-width),calc(100%-2*var(--site-container-gutter)))] gap-8 py-20 sm:py-28 lg:grid-cols-[0.8fr_1.2fr]"><h2 class="font-serif text-4xl leading-none tracking-[-0.05em] sm:text-5xl">{t.contact.faqTitle}</h2><div class="border-t border-ink">{t.contact.faq.map((item) => <details class="border-line group border-b py-5"><summary class="flex cursor-pointer list-none items-center justify-between gap-5 font-semibold"><span>{item.question}</span><span class="text-primary transition-transform group-open:rotate-45">+</span></summary><p class="max-w-2xl pt-4 text-sm leading-7 text-muted">{item.answer}</p></details>)}</div></div></section>
+  </main>
+  <SiteFooter />
+</Layout>

@@ -1,0 +1,50 @@
+{
+  "title": "Aster & Vale",
+  "description": "Counsel for decisions that matter.",
+  "url": "",
+  "email": "hello@astervale.example",
+  "phone": "+1 (212) 555-0148",
+  "address": "120 Madison Avenue, New York, NY",
+  "logo": "",
+  "favicon": "/favicon.svg",
+  "i18n": {
+    "enabled": true,
+    "locales": ["en", "tr"],
+    "defaultLocale": "en",
+    "prefixDefaultLocale": false
+  },
+  "ui": {
+    "container": "7xl",
+    "gutter": "standard",
+    "background": "#F5F1EA",
+    "surface": "#FBF9F5",
+    "primary": "#A6532D",
+    "foreground": "#1E211F",
+    "mutedForeground": "#6E716C",
+    "border": "#D8D2C8",
+    "baseSize": "16",
+    "lineHeight": "relaxed",
+    "radius": "md",
+    "cardSpacing": "standard",
+    "controlRadius": "md",
+    "buttonPadding": "standard",
+    "buttonHeight": "standard",
+    "buttonWeight": "600"
+  },
+  "navigation": [
+    { "key": "practice", "href": "/practice/" },
+    { "key": "people", "href": "/people/" },
+    { "key": "insights", "href": "/insights/" },
+    { "key": "contact", "href": "/contact/" }
+  ],
+  "collections": {
+    "blog": {
+      "gitPath": "src/content/blog",
+      "i18n": {
+        "enabled": true,
+        "strategy": "path",
+        "localePaths": {}
+      }
+    }
+  }
+}

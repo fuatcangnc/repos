@@ -1,0 +1,19 @@
+{
+  "content": "src/content",
+  "media": "public/images",
+  "public": "public",
+  "configs": ["src/config"],
+  "collections": [
+    {
+      "name": "blog",
+      "gitPath": "src/content/blog",
+      "i18n": {
+        "enabled": true,
+        "strategy": "path",
+        "localePaths": {}
+      }
+    }
+  ],
+  "arrangement": [],
+  "customCommit": false
+}

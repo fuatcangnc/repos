@@ -1,0 +1,102 @@
+{
+  "common": {
+    "menu": "Ana navigasyon",
+    "openMenu": "Menüyü aç",
+    "close": "Kapat",
+    "backHome": "Ana sayfaya dön",
+    "readMore": "Devamını oku",
+    "viewAll": "Tüm yazıları gör",
+    "language": "Dil"
+  },
+  "nav": {
+    "practice": "Çalışma alanları",
+    "people": "Ekibimiz",
+    "insights": "Görüşler",
+    "contact": "İletişim",
+    "cta": "Görüşme başlat"
+  },
+  "home": {
+    "eyebrow": "Bağımsız danışmanlık · New York",
+    "title": "Önemli kararlar için net düşünce.",
+    "titleAccent": "net düşünce.",
+    "copy": "Önemli anlarda, karmaşık işlemlerde ve anlamlı değişim dönemlerinde kişi ve kurumlara odaklı hukuk danışmanlığı sunuyoruz.",
+    "primaryCta": "Ekibimizle görüşün",
+    "secondaryCta": "Çalışma alanlarımız",
+    "note": "2026 için seçili dosyalar kabul ediliyor",
+    "manifestoLabel": "Yaklaşımımız",
+    "manifestoTitle": "İyi danışmanlık, karmaşık olanı mümkün kılar.",
+    "manifestoCopy": "En doğru kararın en çok önem taşıdığı anlarda titiz hukuk bilgimizi pratik muhakemeyle birleştiriyoruz. Deneyimli danışmana doğrudan erişim, net bir bakış açısı ve ilerleten bir plan sunuyoruz.",
+    "practiceLabel": "Ne yapıyoruz",
+    "practiceTitle": "Odaklı uzmanlık.\nPratik sonuçlar.",
+    "practiceCopy": "Her ayrıntıya yakın kalacak ilgiyi ve yüksek riskli işleri üstlenecek derinliği bilinçli olarak küçük bir ekipte buluşturuyoruz.",
+    "practiceItems": [
+      { "number": "01", "title": "Şirketler ve işlemler", "copy": "Bir sonraki adımınızın arkasındaki sözleşmeleri kurun, müzakere edin ve koruyun.", "href": "/practice/" },
+      { "number": "02", "title": "Uyuşmazlıklar ve çözüm", "copy": "Riskin yüksek, netliğin zor olduğu anlarda stratejik temsil.", "href": "/practice/" },
+      { "number": "03", "title": "Özel müvekkil", "copy": "Kişisel, ailevi ve emanet sorumluluğu taşıyan kararlara düşünceli danışmanlık.", "href": "/practice/" }
+    ],
+    "insightLabel": "Günlükten",
+    "insightTitle": "Bir sonraki adım için daha iyi bilgi.",
+    "insightCopy": "Temsil ettiğimiz kişileri şekillendiren hukuk, iş dünyası ve kararlar üzerine bakış açıları.",
+    "contactLabel": "Bir sorunuz mu var?",
+    "contactTitle": "Bir görüşmeyle başlayın.",
+    "contactCopy": "Üzerinde çalıştığınız konuyu bize anlatın. İki iş günü içinde size dönüş yapalım.",
+    "contactCta": "İletişime geçin"
+  },
+  "practice": {
+    "eyebrow": "Çalışma alanları",
+    "title": "Hukuku\nişe yarar hâle getiriyoruz.",
+    "copy": "Kuruculara, şirketlere, ailelere ve kişilere bir sonraki kararın sıradan bir cevaptan fazlasını gerektirdiği anlarda danışmanlık veriyoruz.",
+    "items": [
+      { "number": "01", "title": "Şirketler ve işlemler", "copy": "Kuruluştan satın almaya kadar işletmelerin sağlam yapılar kurmasına ve önemli işlemleri güvenle tamamlamasına yardımcı oluyoruz.", "details": ["Ticari sözleşmeler", "Birleşme ve satın almalar", "Kurumsal yönetim", "Girişim ve özel sermaye"] },
+      { "number": "02", "title": "Uyuşmazlıklar ve çözüm", "copy": "Bir anlaşmazlık ivmenizi tehdit ettiğinde, konumunuzu koruyan ve ileriye bir yol açan odaklı bir strateji kuruyoruz.", "details": ["Ticari uyuşmazlıklar", "Dava öncesi strateji", "Arabuluculuk ve tahkim", "Ortaklık uyuşmazlıkları"] },
+      { "number": "03", "title": "Özel müvekkil", "copy": "Kişisel konular; hayatınızın ve önceliklerinizin tamamını gören, gizlilik ve sabır temelli bir danışmanlık gerektirir.", "details": ["Miras planlaması", "Vakıf ve emanet işleri", "Aile şirketi halefiyeti", "Özel sözleşmeler"] }
+    ],
+    "ctaTitle": "Nereden başlayacağınızı bilmiyor musunuz?",
+    "ctaCopy": "Doğru eşleşme olup olmadığımızı anlamanın en kolay yolu ilk görüşmedir.",
+    "cta": "Bize ulaşın"
+  },
+  "people": {
+    "eyebrow": "Ekibimiz",
+    "title": "Deneyimli zihinler.\nYakın danışmanlık.",
+    "copy": "Tasarım gereği küçük bir ekibiz. Bu; kıdemli ilgisi, açık sözlü tavsiye ve soruyla yanıt arasına gereksiz mesafe koymamak demek.",
+    "members": [
+      { "name": "Eleanor Vale", "role": "Kurucu ortak", "bio": "Eleanor, şirketlere ve özel müvekkillere bundan sonrasını belirleyen kararlarında danışmanlık verir." },
+      { "name": "Marcus Aster", "role": "Ortak, uyuşmazlıklar", "bio": "Marcus, uzun vadeli değeri koruyan çözümlere odaklanarak karmaşık ticari uyuşmazlıklarda temsil sunar." },
+      { "name": "Nadia Chen", "role": "Danışman", "bio": "Nadia; kuruculara, yatırımcılara ve yerleşik işletmelere titiz işlem danışmanlığı sağlar." }
+    ],
+    "ctaTitle": "Doğru tavsiye, dinlemekle başlar.",
+    "cta": "Bizi tanıyın"
+  },
+  "insights": {
+    "eyebrow": "Günlük",
+    "title": "Bir sonraki karar\niçin notlar.",
+    "copy": "Hukuk, iş dünyası ve niyetle ilerleme pratiği üzerine kısa ve yararlı bakış açıları.",
+    "empty": "Yeni yazılarımız yakında burada."
+  },
+  "contact": {
+    "eyebrow": "İletişim",
+    "title": "Konuyu birlikte\ndeğerlendirelim.",
+    "copy": "Üzerinde çalıştığınız konuyu kısaca anlatın. İki iş günü içinde size dönüş yapacağız.",
+    "emailLabel": "E-posta",
+    "phoneLabel": "Telefon",
+    "officeLabel": "Ofis",
+    "officeHours": "Pazartesi–Cuma · 09:00–18:00",
+    "formName": "Adınız",
+    "formEmail": "E-posta adresiniz",
+    "formMessage": "Size nasıl yardımcı olabiliriz?",
+    "formSubmit": "Talep gönder",
+    "formNote": "Bu formun gönderilmesi avukat-müvekkil ilişkisi oluşturmaz.",
+    "faqTitle": "Sık sorulanlar",
+    "faq": [
+      { "question": "Bize ulaştıktan sonra ne olur?", "answer": "Mesajınızı inceleyip iki iş günü içinde yanıtlarız. Uygun görünüyorsa bir tanışma görüşmesi planlarız." },
+      { "question": "Kişilerle ve şirketlerle çalışıyor musunuz?", "answer": "Evet. Kurucuları, yerleşik şirketleri, aileleri ve önemli kişisel ya da ticari kararları olan kişileri destekliyoruz." },
+      { "question": "Nerede hizmet veriyorsunuz?", "answer": "Ofisimiz New York'ta. İhtiyaç olduğunda Amerika Birleşik Devletleri ve uluslararası müvekkillerle de çalışıyoruz." }
+    ]
+  },
+  "blog": {
+    "eyebrow": "Günlük",
+    "title": "Bir sonraki karar için notlar.",
+    "copy": "Bu günlükteki her yazı, bağlı Git deposunda yönetilen bir Markdown içeriğidir.",
+    "back": "Ana sayfaya dön"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "common": {
+    "menu": "Main navigation",
+    "openMenu": "Open menu",
+    "close": "Close",
+    "backHome": "Back home",
+    "readMore": "Read more",
+    "viewAll": "View all insights",
+    "language": "Language"
+  },
+  "nav": {
+    "practice": "Practice",
+    "people": "People",
+    "insights": "Insights",
+    "contact": "Contact",
+    "cta": "Start a conversation"
+  },
+  "home": {
+    "eyebrow": "Independent counsel · New York",
+    "title": "Clear thinking for decisions that matter.",
+    "titleAccent": "decisions that matter.",
+    "copy": "A focused legal practice for people and businesses navigating important moments, complex transactions, and meaningful change.",
+    "primaryCta": "Talk to our team",
+    "secondaryCta": "Explore our practice",
+    "note": "Taking on selected matters for 2026",
+    "manifestoLabel": "Our approach",
+    "manifestoTitle": "Good counsel makes the complex feel possible.",
+    "manifestoCopy": "We bring rigorous legal thinking and practical judgment to the moments where the right decision matters most. You get direct access to experienced counsel, a clear point of view, and a plan that moves.",
+    "practiceLabel": "What we do",
+    "practiceTitle": "Focused expertise.\nPractical outcomes.",
+    "practiceCopy": "A deliberately small practice with the depth to handle high-stakes work and the attention to stay close to every detail.",
+    "practiceItems": [
+      { "number": "01", "title": "Business & transactions", "copy": "Build, negotiate, and protect the agreements behind your next chapter.", "href": "/practice/" },
+      { "number": "02", "title": "Disputes & resolution", "copy": "Strategic representation when the stakes are high and clarity is hard-won.", "href": "/practice/" },
+      { "number": "03", "title": "Private client", "copy": "Thoughtful advice for personal, family, and fiduciary decisions.", "href": "/practice/" }
+    ],
+    "insightLabel": "From the journal",
+    "insightTitle": "A better-informed next move.",
+    "insightCopy": "Perspectives on the law, business, and decisions shaping the people we represent.",
+    "contactLabel": "Have a question?",
+    "contactTitle": "Start with a conversation.",
+    "contactCopy": "Tell us what you are working through. We will come back to you within two business days.",
+    "contactCta": "Get in touch"
+  },
+  "practice": {
+    "eyebrow": "Practice areas",
+    "title": "The law,\nmade useful.",
+    "copy": "We advise founders, companies, families, and individuals when the next decision deserves more than a standard answer.",
+    "items": [
+      { "number": "01", "title": "Business & transactions", "copy": "From incorporation to acquisition, we help businesses create durable structures and close important deals with confidence.", "details": ["Commercial agreements", "Mergers and acquisitions", "Corporate governance", "Venture and private capital"] },
+      { "number": "02", "title": "Disputes & resolution", "copy": "When a disagreement threatens momentum, we build a focused strategy designed to protect your position and create a path forward.", "details": ["Commercial disputes", "Pre-litigation strategy", "Mediation and arbitration", "Partnership disputes"] },
+      { "number": "03", "title": "Private client", "copy": "Personal matters call for discretion, patience, and advice grounded in the full picture of your life and priorities.", "details": ["Estate planning", "Trusts and fiduciary matters", "Family business succession", "Private agreements"] }
+    ],
+    "ctaTitle": "Not sure where to start?",
+    "ctaCopy": "A first conversation is the simplest way to understand whether we are the right fit.",
+    "cta": "Contact us"
+  },
+  "people": {
+    "eyebrow": "Our people",
+    "title": "Experienced minds.\nClose counsel.",
+    "copy": "We are a small team by design. That means senior attention, candid advice, and no unnecessary distance between a question and the person who can answer it.",
+    "members": [
+      { "name": "Eleanor Vale", "role": "Founding partner", "bio": "Eleanor advises growing companies and private clients on the decisions that define what comes next." },
+      { "name": "Marcus Aster", "role": "Partner, disputes", "bio": "Marcus represents clients through complex commercial disputes, with a focus on resolution that protects long-term value." },
+      { "name": "Nadia Chen", "role": "Counsel", "bio": "Nadia brings meticulous transactional counsel to founders, investors, and established businesses." }
+    ],
+    "ctaTitle": "The right advice starts with listening.",
+    "cta": "Meet us"
+  },
+  "insights": {
+    "eyebrow": "The journal",
+    "title": "Notes for the\nnext decision.",
+    "copy": "Short, useful perspectives on law, business, and the work of moving forward with intention.",
+    "empty": "New perspectives are on the way."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let us\ntalk it through.",
+    "copy": "Share a little about what you are navigating. We will respond within two business days.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "officeLabel": "Office",
+    "officeHours": "Monday–Friday · 9:00–18:00",
+    "formName": "Your name",
+    "formEmail": "Email address",
+    "formMessage": "How can we help?",
+    "formSubmit": "Send inquiry",
+    "formNote": "Submitting this form does not create an attorney-client relationship.",
+    "faqTitle": "Common questions",
+    "faq": [
+      { "question": "What happens after I reach out?", "answer": "We review your note and respond within two business days. If it seems like a good fit, we will schedule an introductory call." },
+      { "question": "Do you work with individuals and businesses?", "answer": "Yes. Our practice supports founders, established companies, families, and individuals with significant personal or business decisions." },
+      { "question": "Where are you based?", "answer": "Our office is in New York, and we work with clients across the United States and internationally when the matter calls for it." }
+    ]
+  },
+  "blog": {
+    "eyebrow": "The journal",
+    "title": "Notes for the next decision.",
+    "copy": "Every article in this journal is a Markdown entry managed in the connected Git repository.",
+    "back": "Back to home"
+  }
+}

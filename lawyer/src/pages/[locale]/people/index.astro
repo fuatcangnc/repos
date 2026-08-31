@@ -1,0 +1,9 @@
+---
+import People from '../../../components/pages/People.astro';
+import { prefixedLocales } from '../../../lib/i18n';
+
+export function getStaticPaths() {
+  return prefixedLocales().map((locale) => ({ params: { locale } }));
+}
+---
+<People />

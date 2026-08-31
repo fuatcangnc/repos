@@ -1,0 +1,35 @@
+---
+import site from '../config/site.json';
+import { defaultLocale, getMessages, localePath } from '../lib/i18n';
+
+const locale = Astro.currentLocale ?? defaultLocale;
+const t = getMessages(locale);
+---
+
+<footer class="border-line border-t">
+  <div class="mx-auto grid w-[min(var(--site-container-width),calc(100%-2*var(--site-container-gutter)))] gap-10 py-12 text-sm md:grid-cols-[1fr_auto_auto] md:items-end">
+    <div>
+      <a class="inline-flex items-center gap-3 font-semibold tracking-[-0.04em]" href={localePath(locale, '/')}>
+        <span class="grid size-8 place-items-center rounded-[var(--site-control-radius)] bg-ink text-xs text-primary-foreground">A</span>
+        <span>{site.title}</span>
+      </a>
+      <p class="mt-4 max-w-xs text-sm leading-6 text-muted">{site.description}</p>
+    </div>
+    <div class="grid gap-2 text-muted">
+      <a class="hover:text-ink" href={localePath(locale, '/practice/')}>{t.nav.practice}</a>
+      <a class="hover:text-ink" href={localePath(locale, '/people/')}>{t.nav.people}</a>
+      <a class="hover:text-ink" href={localePath(locale, '/insights/')}>{t.nav.insights}</a>
+    </div>
+    <div class="grid gap-2 text-muted md:text-right">
+      <a class="hover:text-ink" href={`mailto:${site.email}`}>{site.email}</a>
+      <a class="hover:text-ink" href={`tel:${site.phone}`}>{site.phone}</a>
+      <span>{site.address}</span>
+    </div>
+  </div>
+  <div class="border-line border-t">
+    <div class="mx-auto flex w-[min(var(--site-container-width),calc(100%-2*var(--site-container-gutter)))] flex-col gap-2 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+      <span>© {new Date().getFullYear()} {site.title}</span>
+      <span>{t.common.backHome} · <a class="underline underline-offset-4 hover:text-ink" href={localePath(locale, '/')}>{site.title}</a></span>
+    </div>
+  </div>
+</footer>

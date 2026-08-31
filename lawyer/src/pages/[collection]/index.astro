@@ -1,0 +1,11 @@
+---
+import ContentIndex from '../../components/pages/ContentIndex.astro';
+import { getContentCollectionPaths } from '../../lib/content-routes';
+
+export async function getStaticPaths() {
+  return getContentCollectionPaths();
+}
+
+const { collection, entries } = Astro.props;
+---
+<ContentIndex collection={collection} entries={entries} />
