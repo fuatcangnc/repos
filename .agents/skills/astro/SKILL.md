@@ -177,6 +177,18 @@ Keep authored assets in src/assets and public URLs in public. Imported media
 that users must manage from TuranCMS belongs under public/images. Use stable,
 repository-relative paths in Markdown and config files.
 
+## Icons and package imports
+
+Before adding or changing an icon, inspect package.json and existing icon
+imports. Import from the exact installed package name; never guess or shorten
+an import path. For example, when package.json declares @lucide/astro, use
+@lucide/astro rather than lucide-astro.
+
+Every new third-party import must be backed by a declared dependency and its
+lockfile. If the project has no compatible icon package, include the package
+and lockfile update in the reviewed change; do not leave a source file with an
+unresolvable import or ask the user to perform an otherwise routine install.
+
 ## Site, SEO and deployment files
 
 src/config/site.json is the public site identity and must be safe to edit from
