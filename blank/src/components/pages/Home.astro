@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import { ArrowUpRightIcon } from "@lucide/astro";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Layout from "../../layouts/Layout.astro";
+import SiteHeader from "../SiteHeader.astro";
+import SiteFooter from "../SiteFooter.astro";
+import site from "../../config/site.json";
+import { defaultLocale, getMessages, localePath } from "../../lib/i18n";
+
+const locale = Astro.currentLocale ?? defaultLocale;
+const messages = getMessages(locale);
+const posts = (await getCollection("blog", ({ data }) => data.draft !== true))
+  .sort((a, b) => Number(new Date(b.data.pubDate ?? 0)) - Number(new Date(a.data.pubDate ?? 0)))
+  .slice(0, 3);
+---
+<Layout title={site.title} description={site.description}>
+  <SiteHeader />
+  <main>
+    <section class="site-container grid min-h-[70vh] items-center gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-32">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Astro · Git · Content</p>
+        <h1 class="mt-6 max-w-4xl text-5xl font-bold tracking-[-0.06em] sm:text-7xl">{site.title}</h1>
+        <p class="mt-7 max-w-2xl text-xl leading-8 text-muted-foreground">{site.description}</p>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <Button as="a" href={localePath(locale, "/blog/")} size="lg">
+            {messages.nav?.blog ?? "Explore content"}
+            <ArrowUpRightIcon aria-hidden="true" />
+          </Button>
+        </div>
+      </div>
+      <Card class="bg-muted/50">
+        <CardHeader>
+          <CardTitle>Content-first by default</CardTitle>
+          <CardDescription>Every folder under src/content can become a collection and a route.</CardDescription>
+        </CardHeader>
+        <CardContent class="grid gap-3 text-sm text-muted-foreground">
+          <div class="rounded-lg border border-border bg-card p-4"><span class="font-mono text-primary">src/content</span><br />Your Markdown and MDX source of truth.</div>
+          <div class="rounded-lg border border-border bg-card p-4"><span class="font-mono text-primary">src/config/site.json</span><br />Site identity, UI tokens, locales, and collection settings.</div>
+          <div class="rounded-lg border border-border bg-card p-4"><span class="font-mono text-primary">public/images</span><br />Media managed alongside the project.</div>
+        </CardContent>
+      </Card>
+    </section>
+    {posts.length > 0 && <section class="site-container border-t border-border py-20">
+      <div class="flex items-end justify-between gap-6">
+        <div><p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">{messages.nav?.blog ?? "Blog"}</p><h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Latest content</h2></div>
+        <a class="hidden text-sm font-medium text-primary sm:inline" href={localePath(locale, "/blog/")}>{messages.content?.readMore ?? "View all"} →</a>
+      </div>
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        {posts.map((post) => <a href={localePath(locale, `/blog/${post.id}/`)} class="group rounded-xl border border-border p-6 transition-colors hover:bg-muted">
+          <h3 class="text-xl font-semibold tracking-tight group-hover:text-primary">{post.data.title}</h3>
+          {post.data.description && <p class="mt-3 text-sm leading-6 text-muted-foreground">{post.data.description}</p>}
+        </a>)}
+      </div>
+    </section>}
+  </main>
+  <SiteFooter />
+</Layout>

@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import site from "../config/site.json";
+---
+
+<Layout title={`Not found | ${site.title}`} description={site.description}>
+  <SiteHeader />
+  <main class="site-container grid min-h-[60vh] place-items-center py-24 text-center">
+    <div><p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">404</p><h1 class="mt-4 text-5xl font-bold tracking-tight">Page not found</h1><a class="mt-8 inline-flex text-primary underline underline-offset-4" href="/">Back home</a></div>
+  </main>
+  <SiteFooter />
+</Layout>

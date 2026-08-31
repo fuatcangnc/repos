@@ -1,0 +1,16 @@
+---
+import { render } from "astro:content";
+import ContentEntry from "../../layouts/ContentEntry.astro";
+import { getContentPaths } from "../../lib/content-routes";
+
+export async function getStaticPaths() {
+  return getContentPaths();
+}
+
+const { entry, collection } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<ContentEntry collection={collection} {...entry.data}>
+  <Content />
+</ContentEntry>

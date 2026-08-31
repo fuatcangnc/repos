@@ -1,0 +1,45 @@
+{
+  "title": "Astro Site",
+  "description": "A fast, content-first Astro website.",
+  "url": "",
+  "email": "",
+  "footer": "",
+  "navigation": [
+    { "label": "Home", "href": "/" },
+    { "label": "Blog", "href": "/blog/" }
+  ],
+  "ui": {
+    "container": "7xl",
+    "gutter": "standard",
+    "background": "#FFFFFF",
+    "surface": "#FFFFFF",
+    "primary": "#2563EB",
+    "foreground": "#171717",
+    "mutedForeground": "#71717A",
+    "border": "#E4E4E7",
+    "baseSize": "16",
+    "lineHeight": "standard",
+    "radius": "lg",
+    "cardSpacing": "standard",
+    "controlRadius": "lg",
+    "buttonPadding": "standard",
+    "buttonHeight": "standard",
+    "buttonWeight": "600"
+  },
+  "i18n": {
+    "enabled": true,
+    "locales": ["en"],
+    "defaultLocale": "en",
+    "prefixDefaultLocale": false
+  },
+  "collections": {
+    "blog": {
+      "gitPath": "src/content/blog",
+      "i18n": {
+        "enabled": true,
+        "strategy": "path",
+        "localePaths": {}
+      }
+    }
+  }
+}

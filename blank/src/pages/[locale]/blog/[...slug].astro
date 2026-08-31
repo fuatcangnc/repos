@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from "astro:content";
+import ContentEntry from "../../../layouts/ContentEntry.astro";
+import { prefixedLocales } from "../../../lib/i18n";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("blog", ({ data }) => data.draft !== true);
+  return prefixedLocales().flatMap((locale) =>
+    entries.map((entry) => ({
+      params: { locale, slug: entry.id },
+      props: { entry, locale },
+    })),
+  );
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<ContentEntry collection="blog" {...entry.data}>
+  <Content />
+</ContentEntry>

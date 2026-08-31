@@ -1,0 +1,13 @@
+{
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "menu": "Main navigation"
+  },
+  "content": {
+    "back": "Back home",
+    "empty": "No content published yet.",
+    "collectionDescription": "Content from this collection is published from the Git repository.",
+    "readMore": "Read more"
+  }
+}

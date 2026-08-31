@@ -1,0 +1,84 @@
+---
+import { Font } from "astro:assets";
+import site from "../config/site.json";
+import seo from "../config/seo.json";
+import { defaultLocale } from "../lib/i18n";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+type UIConfig = Record<string, unknown>;
+const { title, description = site.description } = Astro.props;
+const locale = Astro.currentLocale ?? defaultLocale;
+const ui = (site.ui ?? {}) as UIConfig;
+
+const hexColor = (value: unknown, fallback: string) =>
+  typeof value === "string" && /^#[0-9a-f]{6}$/i.test(value)
+    ? value.toUpperCase()
+    : fallback;
+const selectValue = (
+  value: unknown,
+  values: Record<string, string>,
+  fallback: string,
+) => (typeof value === "string" && value in values ? values[value] : fallback);
+const primary = hexColor(ui.primary, "#2563EB");
+const rgb = primary.slice(1).match(/.{2}/g)?.map((part) => Number.parseInt(part, 16)) ?? [37, 99, 235];
+const primaryForeground =
+  (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000 > 158
+    ? "#171717"
+    : "#F8FAFC";
+const style = [
+  `--site-container-width:${selectValue(ui.container, { "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" }, "80rem")}`,
+  `--site-container-gutter:${selectValue(ui.gutter, { compact: "1rem", standard: "2rem", spacious: "3rem" }, "2rem")}`,
+  `--site-base-size:${selectValue(ui.baseSize, { "14": "14px", "16": "16px", "18": "18px" }, "16px")}`,
+  `--site-line-height:${selectValue(ui.lineHeight, { compact: "1.45", standard: "1.6", relaxed: "1.75" }, "1.6")}`,
+  `--site-control-radius:${selectValue(ui.controlRadius, { sm: "0.375rem", md: "0.625rem", lg: "0.875rem" }, "0.875rem")}`,
+  `--site-button-padding:${selectValue(ui.buttonPadding, { compact: "0.375rem 0.75rem", standard: "0.5rem 1rem", generous: "0.625rem 1.25rem" }, "0.5rem 1rem")}`,
+  `--site-button-height:${selectValue(ui.buttonHeight, { compact: "2rem", standard: "2.5rem", generous: "3rem" }, "2.5rem")}`,
+  `--site-button-font-weight:${selectValue(ui.buttonWeight, { "500": "500", "600": "600", "700": "700" }, "600")}`,
+  `--background:${hexColor(ui.background, "#FFFFFF")}`,
+  `--card:${hexColor(ui.surface, "#FFFFFF")}`,
+  `--card-foreground:${hexColor(ui.foreground, "#171717")}`,
+  `--popover:${hexColor(ui.surface, "#FFFFFF")}`,
+  `--popover-foreground:${hexColor(ui.foreground, "#171717")}`,
+  `--primary:${primary}`,
+  `--primary-foreground:${primaryForeground}`,
+  `--foreground:${hexColor(ui.foreground, "#171717")}`,
+  `--muted-foreground:${hexColor(ui.mutedForeground, "#71717A")}`,
+  `--border:${hexColor(ui.border, "#E4E4E7")}`,
+  `--input:${hexColor(ui.border, "#E4E4E7")}`,
+  `--ring:${primary}`,
+  `--radius:${selectValue(ui.radius, { sm: "0.375rem", md: "0.625rem", lg: "0.875rem" }, "0.875rem")}`,
+].join(";");
+
+const canonical = site.url
+  ? new URL(Astro.url.pathname, site.url).toString()
+  : undefined;
+const socialImage = seo.defaultSocialImage || undefined;
+---
+<!doctype html>
+<html lang={locale} style={style}>
+  <head>
+    <!-- bejamas:astro-fonts:start -->
+    <Font cssVariable="--font-sans" />
+    <!-- bejamas:astro-fonts:end -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {seo.googleVerification && <meta name="google-site-verification" content={seo.googleVerification} />}
+    {seo.bingVerification && <meta name="msvalidate.01" content={seo.bingVerification} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    <link rel="icon" type="image/svg+xml" href={site.favicon || "/favicon.svg"} />
+    <title>{title}{seo.titleSeparator ? ` ${seo.titleSeparator} ${site.title}` : ""}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

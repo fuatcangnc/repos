@@ -1,0 +1,8 @@
+---
+import { getCollection } from "astro:content";
+import ContentIndex from "../../components/pages/ContentIndex.astro";
+
+const entries = await getCollection("blog", ({ data }) => data.draft !== true);
+---
+
+<ContentIndex collection="blog" entries={entries} />

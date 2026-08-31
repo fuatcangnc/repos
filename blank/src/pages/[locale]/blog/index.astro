@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import ContentIndex from "../../../components/pages/ContentIndex.astro";
+import { prefixedLocales } from "../../../lib/i18n";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("blog", ({ data }) => data.draft !== true);
+  return prefixedLocales().map((locale) => ({
+    params: { locale },
+    props: { entries },
+  }));
+}
+
+const { entries } = Astro.props;
+---
+
+<ContentIndex collection="blog" entries={entries} />
