@@ -11,10 +11,21 @@ interface Props {
 
 type UIConfig = {
   container?: unknown;
+  gutter?: unknown;
+  background?: unknown;
+  surface?: unknown;
   primary?: unknown;
   foreground?: unknown;
   mutedForeground?: unknown;
+  border?: unknown;
+  baseSize?: unknown;
+  lineHeight?: unknown;
   radius?: unknown;
+  cardSpacing?: unknown;
+  controlRadius?: unknown;
+  buttonPadding?: unknown;
+  buttonHeight?: unknown;
+  buttonWeight?: unknown;
 };
 
 const { title, description } = Astro.props;
@@ -44,17 +55,82 @@ const containerWidth = selectValue(
   { "5xl": "64rem", "6xl": "72rem", "7xl": "80rem" },
   "80rem",
 );
+const gutter = selectValue(
+  ui.gutter,
+  { compact: "1rem", standard: "1.5rem", spacious: "2rem" },
+  "1.5rem",
+);
+const baseSize = selectValue(
+  ui.baseSize,
+  { "14": "14px", "16": "16px", "18": "18px" },
+  "16px",
+);
+const lineHeight = selectValue(
+  ui.lineHeight,
+  { compact: "1.45", standard: "1.6", relaxed: "1.75" },
+  "1.6",
+);
 const radius = selectValue(
   ui.radius,
   { sm: "0.375rem", md: "0.625rem", lg: "0.875rem" },
   "0.875rem",
 );
+const controlRadius = selectValue(
+  ui.controlRadius,
+  { sm: "0.375rem", md: "0.625rem", lg: "0.875rem" },
+  "0.875rem",
+);
+const cardSpacing = selectValue(
+  ui.cardSpacing,
+  { compact: "1rem", standard: "1.5rem", generous: "2rem" },
+  "1.5rem",
+);
+const buttonPadding = selectValue(
+  ui.buttonPadding,
+  {
+    compact: "0.375rem 0.75rem",
+    standard: "0.5rem 1rem",
+    generous: "0.625rem 1.25rem",
+  },
+  "0.5rem 1rem",
+);
+const buttonHeight = selectValue(
+  ui.buttonHeight,
+  { compact: "2rem", standard: "2.5rem", generous: "3rem" },
+  "2.5rem",
+);
+const buttonWeight = selectValue(
+  ui.buttonWeight,
+  { "500": "500", "600": "600", "700": "700" },
+  "600",
+);
+const background = hexColor(ui.background, "#FFFFFF");
+const surface = hexColor(ui.surface, "#FFFFFF");
+const foreground = hexColor(ui.foreground, "#171717");
+const border = hexColor(ui.border, "#E4E4E7");
 const uiStyle = [
   `--site-container-width: ${containerWidth}`,
+  `--site-container-gutter: ${gutter}`,
+  `--site-base-size: ${baseSize}`,
+  `--site-line-height: ${lineHeight}`,
+  `--site-card-radius: ${radius}`,
+  `--site-card-spacing: ${cardSpacing}`,
+  `--site-control-radius: ${controlRadius}`,
+  `--site-button-padding: ${buttonPadding}`,
+  `--site-button-height: ${buttonHeight}`,
+  `--site-button-font-weight: ${buttonWeight}`,
+  `--background: ${background}`,
+  `--card: ${surface}`,
+  `--card-foreground: ${foreground}`,
+  `--popover: ${surface}`,
+  `--popover-foreground: ${foreground}`,
   `--primary: ${primary}`,
   `--primary-foreground: ${primaryForeground}`,
-  `--foreground: ${hexColor(ui.foreground, "#171717")}`,
+  `--foreground: ${foreground}`,
   `--muted-foreground: ${hexColor(ui.mutedForeground, "#71717A")}`,
+  `--border: ${border}`,
+  `--input: ${border}`,
+  `--ring: ${primary}`,
   `--radius: ${radius}`,
 ].join(";");
 ---

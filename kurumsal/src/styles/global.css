@@ -123,6 +123,8 @@
     }
   body {
     @apply bg-background text-foreground;
+    font-size: var(--site-base-size, 16px);
+    line-height: var(--site-line-height, 1.6);
     }
   .cn-font-heading {
     @apply font-heading;
@@ -134,6 +136,27 @@
 
 @layer utilities {
   .container {
-    width: min(100% - 2rem, var(--site-container-width, 80rem));
+    width: min(
+      100% - var(--site-container-gutter, 1.5rem),
+      var(--site-container-width, 80rem)
+    );
+  }
+
+  [data-slot="card"] {
+    border-radius: var(--site-card-radius, var(--radius));
+    gap: var(--site-card-spacing, 1.5rem);
+    padding-block: var(--site-card-spacing, 1.5rem);
+  }
+
+  [data-slot="button"]:not([data-size^="icon"]) {
+    min-height: var(--site-button-height, 2.5rem);
+    padding: var(--site-button-padding, 0.5rem 1rem);
+    font-weight: var(--site-button-font-weight, 600);
+  }
+
+  [data-slot="input"],
+  [data-slot="select-trigger"],
+  textarea {
+    border-radius: var(--site-control-radius, var(--radius));
   }
 }

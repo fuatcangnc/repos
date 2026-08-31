@@ -5,10 +5,21 @@
   "footer": "© 2026 Kuzey Studio",
   "ui": {
     "container": "7xl",
+    "gutter": "standard",
+    "background": "#FFFFFF",
+    "surface": "#FFFFFF",
     "primary": "#2563EB",
     "foreground": "#171717",
     "mutedForeground": "#71717A",
-    "radius": "lg"
+    "border": "#E4E4E7",
+    "baseSize": "16",
+    "lineHeight": "standard",
+    "radius": "lg",
+    "cardSpacing": "standard",
+    "controlRadius": "lg",
+    "buttonPadding": "standard",
+    "buttonHeight": "standard",
+    "buttonWeight": "600"
   },
   "i18n": {
     "enabled": true,
