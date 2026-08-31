@@ -136,6 +136,7 @@
 
 @layer utilities {
   .container {
+    margin: 0 auto;
     width: min(
       100% - var(--site-container-gutter, 1.5rem),
       var(--site-container-width, 80rem)
